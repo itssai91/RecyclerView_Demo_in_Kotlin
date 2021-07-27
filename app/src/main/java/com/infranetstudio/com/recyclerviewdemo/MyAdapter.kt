@@ -15,6 +15,9 @@ class MyAdapter(val songs: ArrayList<SongList>) : RecyclerView.Adapter<MyAdapter
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+//        return MyViewHolder(
+//            LayoutInflater.from(parent.context).inflate(R.layout.item_view, parent, false)
+//        )
         val inflate: LayoutInflater? = LayoutInflater.from(parent.context)
         val view: View = inflate!!.inflate(R.layout.item_view, parent, false)
         return MyViewHolder(view)
@@ -26,7 +29,7 @@ class MyAdapter(val songs: ArrayList<SongList>) : RecyclerView.Adapter<MyAdapter
         holder.image.setImageResource(songs[position].getImage())
 
         var color = "#EEEEEE"
-        if (position % 2 == 0){
+        if (position % 2 == 0) {
             color = "#CCCCCC"
         }
         holder.container.setBackgroundColor(Color.parseColor(color))
@@ -41,5 +44,6 @@ class MyAdapter(val songs: ArrayList<SongList>) : RecyclerView.Adapter<MyAdapter
         val artist = itemView.findViewById<TextView>(R.id.tvItemDesc)
         val image = itemView.findViewById<ImageView>(R.id.ivImage)
         val container = itemView.findViewById<LinearLayout>(R.id.container)
+
     }
 }
